@@ -17,7 +17,7 @@ Import the Prism zip from a GitHub release with `Add Instance -> Import from zip
 The Prism instance runs `packwiz-update.sh` as a pre-launch command. That script uses `packwiz-installer-bootstrap.jar` and syncs from:
 
 ```text
-https://cdn.jsdelivr.net/gh/Deep-Season-SMP/skymod@main/pack.toml
+https://cdn.jsdelivr.net/gh/Deep-Season-SMP/skymod@<release-tag>/pack.toml
 ```
 
 Once installed, the Prism instance updates itself before each launch.
