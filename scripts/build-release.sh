@@ -4,7 +4,7 @@ set -euo pipefail
 PACK_SLUG="${PACK_SLUG:-skymod}"
 PACK_NAME="${PACK_NAME:-Skymod}"
 PACK_VERSION="${PACK_VERSION:-$(git describe --tags --always --dirty 2>/dev/null || date +%Y%m%d)}"
-PACKWIZ_URL="${PACKWIZ_URL:-https://deep-season-smp.github.io/skymod/pack.toml}"
+PACKWIZ_URL="${PACKWIZ_URL:-https://raw.githubusercontent.com/Deep-Season-SMP/skymod/main/pack.toml}"
 DIST_DIR="${DIST_DIR:-dist}"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

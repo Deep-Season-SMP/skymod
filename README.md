@@ -17,10 +17,12 @@ Import the Prism zip from a GitHub release with `Add Instance -> Import from zip
 The Prism instance uses `packwiz-installer-bootstrap.jar` as a pre-launch command and syncs from:
 
 ```text
-https://deep-season-smp.github.io/skymod/pack.toml
+https://raw.githubusercontent.com/Deep-Season-SMP/skymod/main/pack.toml
 ```
 
-That URL is published by GitHub Pages from the `main` branch. Once installed, the Prism instance updates itself before each launch.
+Once installed, the Prism instance updates itself before each launch.
+
+The raw GitHub URL must be reachable by players. If the repository is private, either make the repository public or build releases with `PACKWIZ_URL` pointed at another public static host.
 
 ## Making a Release
 
