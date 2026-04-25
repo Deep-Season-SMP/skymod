@@ -14,7 +14,7 @@ GitHub releases are built automatically from version tags.
 
 Import the Prism zip from a GitHub release with `Add Instance -> Import from zip`.
 
-The Prism instance uses `packwiz-installer-bootstrap.jar` as a pre-launch command and syncs from:
+The Prism instance runs `packwiz-update.sh` as a pre-launch command. That script uses `packwiz-installer-bootstrap.jar` and syncs from:
 
 ```text
 https://raw.githubusercontent.com/Deep-Season-SMP/skymod/main/pack.toml

@@ -78,7 +78,7 @@ name=$PACK_NAME
 iconKey=default
 notes=Auto-updating packwiz instance. Updates from $PACKWIZ_URL before each launch.
 OverrideCommands=true
-PreLaunchCommand="\$INST_JAVA" -jar packwiz-installer-bootstrap.jar $PACKWIZ_URL
+PreLaunchCommand=/bin/sh packwiz-update.sh
 PostExitCommand=
 WrapperCommand=
 LogPrePostOutput=true
@@ -92,6 +92,23 @@ ExportName=$PACK_NAME
 ExportSummary=Auto-updating Prism instance for $PACK_NAME
 ExportVersion=$PACK_VERSION
 CFG
+
+cat > "$instance_dir/minecraft/packwiz-update.sh" <<CFG
+#!/bin/sh
+set -eu
+
+if [ -n "\${INST_JAVA:-}" ]; then
+  exec "\$INST_JAVA" -jar packwiz-installer-bootstrap.jar "$PACKWIZ_URL"
+fi
+
+if command -v java >/dev/null 2>&1; then
+  exec java -jar packwiz-installer-bootstrap.jar "$PACKWIZ_URL"
+fi
+
+echo "Could not find Java. Prism did not provide INST_JAVA and java is not on PATH." >&2
+exit 1
+CFG
+chmod +x "$instance_dir/minecraft/packwiz-update.sh"
 
 curl -L --fail --silent --show-error \
   "https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest/download/packwiz-installer-bootstrap.jar" \
