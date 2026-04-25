@@ -97,7 +97,14 @@ cat > "$instance_dir/minecraft/packwiz-update.sh" <<CFG
 #!/bin/sh
 set -eu
 
-if [ -n "\${INST_JAVA:-}" ]; then
+if [ -f "../instance.cfg" ]; then
+  JAVA_PATH=\$(awk -F= '/^JavaPath=/{print substr(\$0, index(\$0, "=") + 1); exit}' "../instance.cfg")
+  if [ -n "\${JAVA_PATH:-}" ] && [ -x "\$JAVA_PATH" ]; then
+    exec "\$JAVA_PATH" -jar packwiz-installer-bootstrap.jar "$PACKWIZ_URL"
+  fi
+fi
+
+if [ -n "\${INST_JAVA:-}" ] && [ -x "\$INST_JAVA" ]; then
   exec "\$INST_JAVA" -jar packwiz-installer-bootstrap.jar "$PACKWIZ_URL"
 fi
 
