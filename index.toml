@@ -131,11 +131,6 @@ hash = "681bc58cb8782800ad2dc5d21199e35b5048ed2b1b32c9e06579e41ee3c199a3"
 metafile = true
 
 [[files]]
-file = "mods/create-deco.pw.toml"
-hash = "67a405e6307f900d168deaa954a4309c3b44a6025e4efd7b8e774b6f9d3a69cd"
-metafile = true
-
-[[files]]
 file = "mods/create-design-n-decor.pw.toml"
 hash = "bc4ef8bd7d32506703dcc175a62a12766addc393434ddbe8d17f01b071701943"
 metafile = true
@@ -513,11 +508,6 @@ metafile = true
 [[files]]
 file = "mods/titanium.pw.toml"
 hash = "455ba0409bef5fe9bda93434d826a8d2d5eb11c1b7d41ea119256fe3b15da157"
-metafile = true
-
-[[files]]
-file = "mods/touys.pw.toml"
-hash = "1b1f89d29c2ecc02f3d132718d078e0add20c3ac7e5f3f8d362eb824023d8082"
 metafile = true
 
 [[files]]
