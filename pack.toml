@@ -1,0 +1,13 @@
+name = "Skymod"
+author = "Vin"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "7f1b5a5be3e6e34f5d334f03481b4b23df52629f4425ee2b64e944dc4c7797ac"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.228"
