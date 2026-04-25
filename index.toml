@@ -102,7 +102,7 @@ metafile = true
 
 [[files]]
 file = "mods/create-aeronautics.pw.toml"
-hash = "d2754c84f0e4770a5852543af08dd02029056d46b7eb751586f77f93af5a1811"
+hash = "74f3358e1070f1163d14cb62ee768a389bd758f36b5c21471910e43fbcfacc9e"
 metafile = true
 
 [[files]]
@@ -113,6 +113,11 @@ metafile = true
 [[files]]
 file = "mods/create-big-cannons.pw.toml"
 hash = "c0ce5acc926fd747135f330cb3e53b847e5c05ed950b96f7cbe0d1159aefa285"
+metafile = true
+
+[[files]]
+file = "mods/create-bits-n-bobs.pw.toml"
+hash = "0f67083a39e4b9aa80b1830257086f16734091f9ecb24e64dd208c19be2c4923"
 metafile = true
 
 [[files]]
@@ -182,7 +187,7 @@ metafile = true
 
 [[files]]
 file = "mods/create.pw.toml"
-hash = "9da22561c3a5e45beb91121518a49f2e8a62bedb332574ce43a9d9b287ebc705"
+hash = "dcaf5f2e28db0b9a127d0167456832341045ddc9aec058c3d9fcf53f618d2404"
 metafile = true
 
 [[files]]
@@ -198,6 +203,11 @@ metafile = true
 [[files]]
 file = "mods/databank.pw.toml"
 hash = "beb789c1820089778351534cc926b5b0144a638b2ead5817faaf47ca131bfd6d"
+metafile = true
+
+[[files]]
+file = "mods/deployer.pw.toml"
+hash = "ddd69d144d9059a46a8782b1f5085567ddc5301203df90f9bf0c0d0555d92514"
 metafile = true
 
 [[files]]
@@ -271,6 +281,11 @@ hash = "f9c118b7a66238a7f9e052705e82402e57c7a5b753d62d679b94701ede479752"
 metafile = true
 
 [[files]]
+file = "mods/gears-n-kinetics.pw.toml"
+hash = "ca9a6e860a062bf02cdc222775e8adaa2c0d9a38891464eeb55a12eecef69ce4"
+metafile = true
+
+[[files]]
 file = "mods/guideme.pw.toml"
 hash = "b8aee2057378b6f054f94550684d9a3f41ded7cc47794c8b01c107c8c2115ceb"
 metafile = true
@@ -333,6 +348,11 @@ metafile = true
 [[files]]
 file = "mods/kotlin-for-forge.pw.toml"
 hash = "3c13beafeb69d23d2a43805cfa3d79b7e458cfb8f9ce603075b84d95da630d4b"
+metafile = true
+
+[[files]]
+file = "mods/lets-do-furniture.pw.toml"
+hash = "07001924cb1dbf26307911da978169f9be39eccb685eba1d07961e74bcaaaa14"
 metafile = true
 
 [[files]]
@@ -432,7 +452,7 @@ metafile = true
 
 [[files]]
 file = "mods/sable.pw.toml"
-hash = "a827973337d288d5999ab6fa54c7476a25f98924e729712d3a85a01bc0e2032e"
+hash = "735f0a8e564e8c80c282a7ba97fe77c34edec0402883f7154fd0206572537afe"
 metafile = true
 
 [[files]]
@@ -443,6 +463,11 @@ metafile = true
 [[files]]
 file = "mods/simple-voice-chat.pw.toml"
 hash = "c4f12c7bf746bdf25719995f9da8626187e9f879a20e29a9b4854e2066ad20bc"
+metafile = true
+
+[[files]]
+file = "mods/simulated-gauges.pw.toml"
+hash = "276db967822721cc23954e22e796e6e68435b69613a69d12fc35a09effabab27"
 metafile = true
 
 [[files]]
@@ -493,6 +518,11 @@ metafile = true
 [[files]]
 file = "mods/touys.pw.toml"
 hash = "1b1f89d29c2ecc02f3d132718d078e0add20c3ac7e5f3f8d362eb824023d8082"
+metafile = true
+
+[[files]]
+file = "mods/unusual-furniture.pw.toml"
+hash = "2441abf8ae001e8f2ddede167b559fd9ab1a402618ad95d22f4f9d1b2fdcef14"
 metafile = true
 
 [[files]]

@@ -1,0 +1,13 @@
+name = "Create: Deployer API"
+filename = "deployer-0.1.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "882789fa098eb7fbef2eacdb6b791c3721f0bb76"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 7974804
+project-id = 1516421
