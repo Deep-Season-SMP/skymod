@@ -1,0 +1,9 @@
+.git/
+.github/
+scripts/
+dist/
+README.md
+.gitignore
+.packwizignore
+*.zip
+*.mrpack

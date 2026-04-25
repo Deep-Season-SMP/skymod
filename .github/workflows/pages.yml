@@ -1,0 +1,48 @@
+name: Publish packwiz site
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare packwiz site
+        run: |
+          mkdir -p site
+          rsync -av \
+            --include 'pack.toml' \
+            --include 'index.toml' \
+            --include 'mods/***' \
+            --include 'config/***' \
+            --include 'defaultconfigs/***' \
+            --include 'kubejs/***' \
+            --include 'resourcepacks/***' \
+            --include 'shaderpacks/***' \
+            --exclude '*' \
+            ./ site/
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
