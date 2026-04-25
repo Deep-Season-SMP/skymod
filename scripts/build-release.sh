@@ -4,7 +4,7 @@ set -euo pipefail
 PACK_SLUG="${PACK_SLUG:-skymod}"
 PACK_NAME="${PACK_NAME:-Skymod}"
 PACK_VERSION="${PACK_VERSION:-$(git describe --tags --always --dirty 2>/dev/null || date +%Y%m%d)}"
-PACKWIZ_URL="${PACKWIZ_URL:-https://raw.githubusercontent.com/Deep-Season-SMP/skymod/main/pack.toml}"
+PACKWIZ_URL="${PACKWIZ_URL:-https://cdn.jsdelivr.net/gh/Deep-Season-SMP/skymod@main/pack.toml}"
 DIST_DIR="${DIST_DIR:-dist}"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -97,19 +97,21 @@ cat > "$instance_dir/minecraft/packwiz-update.sh" <<CFG
 #!/bin/sh
 set -eu
 
+PACK_URL="$PACKWIZ_URL?cache=\$(date +%s)"
+
 if [ -f "../instance.cfg" ]; then
   JAVA_PATH=\$(awk -F= '/^JavaPath=/{print substr(\$0, index(\$0, "=") + 1); exit}' "../instance.cfg")
   if [ -n "\${JAVA_PATH:-}" ] && [ -x "\$JAVA_PATH" ]; then
-    exec "\$JAVA_PATH" -jar packwiz-installer-bootstrap.jar "$PACKWIZ_URL"
+    exec "\$JAVA_PATH" -jar packwiz-installer-bootstrap.jar "\$PACK_URL"
   fi
 fi
 
 if [ -n "\${INST_JAVA:-}" ] && [ -x "\$INST_JAVA" ]; then
-  exec "\$INST_JAVA" -jar packwiz-installer-bootstrap.jar "$PACKWIZ_URL"
+  exec "\$INST_JAVA" -jar packwiz-installer-bootstrap.jar "\$PACK_URL"
 fi
 
 if command -v java >/dev/null 2>&1; then
-  exec java -jar packwiz-installer-bootstrap.jar "$PACKWIZ_URL"
+  exec java -jar packwiz-installer-bootstrap.jar "\$PACK_URL"
 fi
 
 echo "Could not find Java. Prism did not provide INST_JAVA and java is not on PATH." >&2

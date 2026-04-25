@@ -28,7 +28,7 @@ jobs:
 
       - name: Build release artifacts
         env:
-          PACKWIZ_URL: https://raw.githubusercontent.com/Deep-Season-SMP/skymod/main/pack.toml
+          PACKWIZ_URL: https://cdn.jsdelivr.net/gh/Deep-Season-SMP/skymod@main/pack.toml
           PACK_VERSION: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
         run: ./scripts/build-release.sh
 
