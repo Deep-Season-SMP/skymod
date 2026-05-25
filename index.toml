@@ -390,6 +390,11 @@ hash = "7176a478e738fe98c67f46ce0cb1bbabca7435e68fc6ab22aebeb7894e72df07"
 metafile = true
 
 [[files]]
+file = "mods/inventory-profiles-next.pw.toml"
+hash = "ab503e89461dff879ee793253e173625b6ab868f570a371323ef725e567cf5ea"
+metafile = true
+
+[[files]]
 file = "mods/iris-flw-compat.pw.toml"
 hash = "bba99941382e96ade8287e74aa3c997515dd30e82672b1c2a7295c2661ead52b"
 metafile = true
@@ -416,12 +421,17 @@ metafile = true
 
 [[files]]
 file = "mods/kotlin-for-forge.pw.toml"
-hash = "86ee892bcba1eda6dd1c89add23766adabc2d55256b23cae31b8973a9896cbed"
+hash = "6ab19a4fc413960206a4e4ef9600c2018f750d158ddf47b82dba839580fca064"
 metafile = true
 
 [[files]]
 file = "mods/lets-do-furniture.pw.toml"
 hash = "70b33bf94480b7caf8556a1382141cc772f11dc5127439da8a7632b34ec76331"
+metafile = true
+
+[[files]]
+file = "mods/libipn.pw.toml"
+hash = "0d2a00252d64ed7d2d9b19994f7accb780304be61f3903d36e810714b414c6cb"
 metafile = true
 
 [[files]]
@@ -472,6 +482,11 @@ metafile = true
 [[files]]
 file = "mods/numismatics.pw.toml"
 hash = "6abed33806e1fb6beb41b77413cb8a2b056e3a45e6567bd84ea525ed55bef8e3"
+metafile = true
+
+[[files]]
+file = "mods/ok-zoomer.pw.toml"
+hash = "413494b5ba534461e22545173a8cc6e98b04962a0ee9514498b830b99d4acabe"
 metafile = true
 
 [[files]]
