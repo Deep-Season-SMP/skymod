@@ -79,7 +79,7 @@ name=$PACK_NAME
 iconKey=default
 notes=Auto-updating packwiz instance. Updates from $PACKWIZ_URL before each launch.
 OverrideCommands=true
-PreLaunchCommand="\$INST_JAVA" -jar packwiz-installer-bootstrap.jar $PACKWIZ_URL
+PreLaunchCommand=/bin/sh packwiz-update.sh
 PostExitCommand=
 WrapperCommand=
 LogPrePostOutput=true
@@ -98,7 +98,7 @@ cat > "$instance_dir/minecraft/packwiz-update.sh" <<CFG
 #!/bin/sh
 set -eu
 
-PACK_URL="$PACKWIZ_URL?cache=\$(date +%s)"
+PACK_URL="$PACKWIZ_URL"
 
 if [ -f "../instance.cfg" ]; then
   JAVA_PATH=\$(awk -F= '/^JavaPath=/{print substr(\$0, index(\$0, "=") + 1); exit}' "../instance.cfg")
@@ -107,7 +107,7 @@ if [ -f "../instance.cfg" ]; then
   fi
 fi
 
-if [ -n "\${INST_JAVA:-}" ] && [ -x "\$INST_JAVA" ]; then
+if [ -n "\${INST_JAVA:-}" ]; then
   exec "\$INST_JAVA" -jar packwiz-installer-bootstrap.jar "\$PACK_URL"
 fi
 
