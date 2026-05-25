@@ -4,7 +4,7 @@ set -euo pipefail
 PACK_SLUG="${PACK_SLUG:-skymod}"
 PACK_NAME="${PACK_NAME:-Skymod}"
 PACK_VERSION="${PACK_VERSION:-$(git describe --tags --always --dirty 2>/dev/null || date +%Y%m%d)}"
-PACK_REF="${PACK_REF:-$(git describe --tags --exact-match 2>/dev/null || git rev-parse --short HEAD 2>/dev/null || echo main)}"
+PACK_REF="${PACK_REF:-main}"
 PACKWIZ_URL="${PACKWIZ_URL:-https://cdn.jsdelivr.net/gh/Deep-Season-SMP/skymod@${PACK_REF}/pack.toml}"
 DIST_DIR="${DIST_DIR:-dist}"
 
@@ -79,7 +79,7 @@ name=$PACK_NAME
 iconKey=default
 notes=Auto-updating packwiz instance. Updates from $PACKWIZ_URL before each launch.
 OverrideCommands=true
-PreLaunchCommand=/bin/sh packwiz-update.sh
+PreLaunchCommand="\$INST_JAVA" -jar packwiz-installer-bootstrap.jar $PACKWIZ_URL
 PostExitCommand=
 WrapperCommand=
 LogPrePostOutput=true
