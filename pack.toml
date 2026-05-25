@@ -1,12 +1,12 @@
 name = "Skymod"
 author = "Vin"
-version = "1.0.10"
+version = "1.1.0"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "3ce45203929caa2f63684423d6386e77a8c0d94bfbf9b9cafcdc1ce6e852159b"
+hash = "1ef1313ce85119d0ba2812013e3a68ed3a5ef7db5458a2b35a2aad92ceeb52d2"
 
 [versions]
 minecraft = "1.21.1"

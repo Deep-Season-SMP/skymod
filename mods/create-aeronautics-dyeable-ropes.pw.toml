@@ -1,0 +1,13 @@
+name = "Dyeable Ropes for Create Aeronautics"
+filename = "dyeable_ropes-1.2.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/dfrdhOy5/versions/lJQN1scE/dyeable_ropes-1.2.1.jar"
+hash-format = "sha512"
+hash = "8eb27c91a6a584c63490d9737c3483e27bdf77963f7ad21445e0e4cdf19718734e93ae1c8ab4267c782ae583a162b536ab538baf18348672e7feebd938cab710"
+
+[update]
+[update.modrinth]
+mod-id = "dfrdhOy5"
+version = "lJQN1scE"
