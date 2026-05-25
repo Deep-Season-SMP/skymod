@@ -1,0 +1,8 @@
+name = "Voxy"
+side = "client"
+filename = "voxy-0.2.14-alpha.jar"
+
+[download]
+hash-format = "sha256"
+url = "https://github.com/Deep-Season-SMP/skymod/raw/refs/heads/main/mods/extra_mods/voxy-0.2.14-alpha.jar"
+hash = "e171712cf33630bbedd2edefb9bd2d7b8d6bdd3cde2fdaeddef8cee2ed696a70"
