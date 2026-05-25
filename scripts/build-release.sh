@@ -62,9 +62,9 @@ cat > "$instance_dir/mmc-pack.json" <<'JSON'
                     "uid": "net.minecraft"
                 }
             ],
-            "cachedVersion": "21.1.228",
+            "cachedVersion": "21.1.229",
             "uid": "net.neoforged",
-            "version": "21.1.228"
+            "version": "21.1.229"
         }
     ],
     "formatVersion": 1
