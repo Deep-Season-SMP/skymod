@@ -26,11 +26,12 @@ The raw GitHub URL must be reachable by players. If the repository is private, e
 
 ## Making a Release
 
-Create and push a tag:
+Update the `version` in `pack.toml`, commit it to `main`, and push. GitHub Actions creates the matching `v<version>` tag and release automatically.
 
 ```sh
-git tag v1.0.0
-git push origin v1.0.0
+git add pack.toml
+git commit -m "Bump pack version to 1.1.0"
+git push origin main
 ```
 
 The release workflow builds and attaches the Prism, Modrinth, and CurseForge packs.

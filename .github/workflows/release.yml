@@ -2,6 +2,10 @@ name: Build release packs
 
 on:
   push:
+    branches:
+      - main
+    paths:
+      - pack.toml
     tags:
       - 'v*'
   workflow_dispatch:
@@ -21,26 +25,65 @@ jobs:
         with:
           go-version: 'stable'
 
+      - name: Resolve release version
+        id: version
+        shell: bash
+        run: |
+          if [ "${{ github.ref_type }}" = "tag" ]; then
+            tag="${{ github.ref_name }}"
+            version="${tag#v}"
+          else
+            version="$(sed -n 's/^version = "\(.*\)"/\1/p' pack.toml)"
+            tag="v${version}"
+          fi
+
+          if [ -z "$version" ] || [ "$version" = "$tag" ]; then
+            echo "Could not resolve pack version from pack.toml" >&2
+            exit 1
+          fi
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Check release tag
+        id: release_tag
+        shell: bash
+        run: |
+          if git rev-parse -q --verify "refs/tags/${{ steps.version.outputs.tag }}" >/dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create release tag
+        if: github.ref_type != 'tag' && steps.release_tag.outputs.exists == 'false'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "${{ steps.version.outputs.tag }}"
+          git push origin "${{ steps.version.outputs.tag }}"
+
       - name: Install packwiz
+        if: github.ref_type == 'tag' || steps.release_tag.outputs.exists == 'false'
         run: |
           go install github.com/packwiz/packwiz@latest
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       - name: Build release artifacts
+        if: github.ref_type == 'tag' || steps.release_tag.outputs.exists == 'false'
         env:
-          PACK_VERSION: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
+          PACK_VERSION: ${{ steps.version.outputs.tag }}
         run: ./scripts/build-release.sh
 
       - name: Create GitHub release
-        if: github.ref_type == 'tag'
+        if: github.ref_type == 'tag' || steps.release_tag.outputs.exists == 'false'
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ steps.version.outputs.tag }}
           files: dist/*
           generate_release_notes: true
 
-      - name: Upload workflow artifacts
-        if: github.ref_type != 'tag'
-        uses: actions/upload-artifact@v4
-        with:
-          name: skymod-packs
-          path: dist/*
+      - name: Skip existing version
+        if: github.ref_type != 'tag' && steps.release_tag.outputs.exists == 'true'
+        run: echo "Release ${{ steps.version.outputs.tag }} already exists; nothing to publish."
